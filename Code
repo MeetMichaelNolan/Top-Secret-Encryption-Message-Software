@@ -1,0 +1,191 @@
+#
+# Michael H Nolan
+# 10 July 2022
+# Encode and Decode Special Message's
+#
+
+import time
+
+
+def encode():
+    message = input("Enter message to be encoded: ").lower()
+    encoded = ""
+
+    for x in message:
+        if x == 'a':
+            encoded += 'z'
+        elif x == 'b':
+            encoded += 'y'
+        elif x == 'c':
+            encoded += 'x'
+        elif x == 'd':
+            encoded += 'w'
+        elif x == 'e':
+            encoded += 'v'
+        elif x == 'f':
+            encoded += 'u'
+        elif x == 'g':
+            encoded += 't'
+        elif x == 'h':
+            encoded += 's'
+        elif x == 'i':
+            encoded += 'r'
+        elif x == 'j':
+            encoded += 'q'
+        elif x == 'k':
+            encoded += 'p'
+        elif x == 'l':
+            encoded += 'o'
+        elif x == 'm':
+            encoded += 'n'
+        elif x == 'n':
+            encoded += 'm'
+        elif x == 'o':
+            encoded += 'l'
+        elif x == 'p':
+            encoded += 'k'
+        elif x == 'q':
+            encoded += 'j'
+        elif x == 'r':
+            encoded += 'i'
+        elif x == 's':
+            encoded += 'h'
+        elif x == 't':
+            encoded += 'g'
+        elif x == 'u':
+            encoded += 'f'
+        elif x == 'v':
+            encoded += 'e'
+        elif x == 'w':
+            encoded += 'd'
+        elif x == 'x':
+            encoded += 'c'
+        elif x == 'y':
+            encoded += 'b'
+        elif x == 'z':
+            encoded += 'a'
+        elif x == ' ':
+            encoded += ' '
+        elif x == ':':
+            encoded += '+'
+        elif x == '.':
+            encoded += '='
+
+    return encoded
+
+
+def decode(message):
+    decoded = ""
+
+    for x in message.lower():
+        if x == 'a':
+            decoded += 'z'
+        elif x == 'b':
+            decoded += 'y'
+        elif x == 'c':
+            decoded += 'x'
+        elif x == 'd':
+            decoded += 'w'
+        elif x == 'e':
+            decoded += 'v'
+        elif x == 'f':
+            decoded += 'u'
+        elif x == 'g':
+            decoded += 't'
+        elif x == 'h':
+            decoded += 's'
+        elif x == 'i':
+            decoded += 'r'
+        elif x == 'j':
+            decoded += 'q'
+        elif x == 'k':
+            decoded += 'p'
+        elif x == 'l':
+            decoded += 'o'
+        elif x == 'm':
+            decoded += 'n'
+        elif x == 'n':
+            decoded += 'm'
+        elif x == 'o':
+            decoded += 'l'
+        elif x == 'p':
+            decoded += 'k'
+        elif x == 'q':
+            decoded += 'j'
+        elif x == 'r':
+            decoded += 'i'
+        elif x == 's':
+            decoded += 'h'
+        elif x == 't':
+            decoded += 'g'
+        elif x == 'u':
+            decoded += 'f'
+        elif x == 'v':
+            decoded += 'e'
+        elif x == 'w':
+            decoded += 'd'
+        elif x == 'x':
+            decoded += 'c'
+        elif x == 'y':
+            decoded += 'b'
+        elif x == 'z':
+            decoded += 'a'
+        elif x == ' ':
+            decoded += ' '
+        elif x == '+':
+            decoded += ':'
+        elif x == '=':
+            decoded += '.'
+
+    return decoded
+
+
+def main():
+    encoded = False
+    encoded_message = ''
+    decoded_message = ''
+    while True:
+        answer = input("Enter 1 to ENCODE a message, Enter 2 to DECODE a message or Enter 3 to STOP program: ")
+        try:
+            answer = int(answer)
+        except:
+            print("Unsupported entry, try again.")
+            time.sleep(1)
+            continue
+
+        if answer == 1:
+            encoded = True
+            encoded_message = encode()
+            time.sleep(0.5)
+            print("- - - - - ENCRYPTING - - - - -")
+            time.sleep(2.5)
+            print(f"Encoded Message: {encoded_message}")
+            time.sleep(5)
+        elif answer == 2 and encoded:
+            decoded_message = decode(encoded_message)
+            time.sleep(0.5)
+            print("- - - - - DECRYPTING - - - - -")
+            time.sleep(2.5)
+            print(f"Decoded Message: {decoded_message}")
+            time.sleep(5)
+        elif answer == 3:
+            print("Goodbye!")
+            quit()
+        elif answer < 1:
+            print("Unsupported entry, enter a number between 1 and 3.")
+            time.sleep(1)
+            continue
+        elif answer > 3:
+            print("Unsupported entry, enter a number between 1 and 3.")
+            time.sleep(1)
+            continue
+        else:
+            message = input("Enter Message to Decode: ")
+            decoded_message = decode(message)
+            time.sleep(0.5)
+            print("- - - - - DECRYPTING - - - - -")
+            time.sleep(2)
+            print(f"Decoded Message: {decoded_message}")
+            time.sleep(4.5)
+
+main()
